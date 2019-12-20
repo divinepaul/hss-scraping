@@ -8,12 +8,11 @@ class Scraper {
         this.schoolCode = null;
     }
 
-
     async init() {
 
-        const browser = await puppeteer.launch();
+        this.browser = await puppeteer.launch();
 
-        this.page = await browser.newPage();
+        this.page = await this.browser.newPage();
         
         console.log("Init complete, browser window ready.");
         
@@ -102,10 +101,18 @@ class Scraper {
 
             // the 2D array containing all the student data is returned.
             return students;
+
         });
 
     }
 
+
+
+    // used to close the headless browser
+    async disposeScraper(){
+        await this.browser.close();
+    }
+    // getter to return 2D array.
     get results() {
 
         if(!this.studentData){
@@ -115,6 +122,7 @@ class Scraper {
             throw "Exception : Please call scrape function()"
         }
     }
+
 
 
 }
