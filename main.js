@@ -1,51 +1,36 @@
-const puppeteer = require('puppeteer');
-var readlineSync = require('readline-sync');
 
-(async () => {
-  let studentData = [];
-  const browser = await puppeteer.launch();
-  let page = await browser.newPage();
-  await page.goto('http://keralaresults.nic.in/');
-  await page.goto("http://keralaresults.nic.in/dhsefy193k7sam/dhsefy.htm");
-  await page.goto("http://keralaresults.nic.in/dhsefy193k7sam/swr_dhsefy.htm");
+const Scraper = require("./scraping/scraper.js");
 
-  var ele = await page.$('input[name=treg]');
-  await ele.click();
-  await page.keyboard.type('07037');
-  await page.keyboard.press("Enter");
-  await page.waitFor(5000);
-  let strippedData = await page.evaluate(()=>{
-    let students = [];
+const firebase = require("firebase");
 
-    let data1 = document.querySelectorAll("tr");
-    
+require('dotenv').config()
 
-    data1.forEach(
-      (item)=>{
-        students.push(item.innerText);
-        
-      }
-    )
-    
-    
-    return students;
-  });
+require("firebase/firestore");
+
+
+// Initialize Cloud Firestore through Firebase
+firebase.initializeApp({
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID
+});
 
 
 
-  strippedData.forEach((stud)=>{
+var db = firebase.firestore();
 
-    var arr = stud.split("\t");
-    studentData.push(arr);
-    
-  });
+let scraper = new Scraper();
+(async()=>{
 
-  studentData.pop();
-  studentData.splice(0,7);
+  await scraper.init();
+  await scraper.navigateToSchoolCode("07087");
+  await scraper.scrape();
 
-  console.log(studentData[studentData.length-1]);
-
-
-  await browser.close();
+  console.log(scraper.studentData);
 
 })();
