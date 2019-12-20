@@ -23,9 +23,10 @@ class DatabaseHelper {
 
     }
 
-    insertIntoDb(district, school, studentData) {
+    async insertIntoDb(district, school, studentData) {
 
-        studentData.forEach((student) => {
+
+        studentData.forEach( async (student) => {
             let regno = student[0];
 
             let data = {
@@ -58,16 +59,10 @@ class DatabaseHelper {
 
             }
 
-            let dbRef = this.db.collection(district).collection(school).doc(regno).set(data);
+            await this.db.collection(district).doc(school).collection("mark-data").doc(regno).set(data);
 
 
-        })
-
-
-
-
-
-
+        });
 
     }
 
