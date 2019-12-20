@@ -26,7 +26,7 @@ class DatabaseHelper {
     async insertIntoDb(district, school, studentData) {
 
 
-        studentData.forEach( async (student) => {
+        studentData.forEach(async (student, i) => {
             let regno = student[0];
 
             let data = {
@@ -36,7 +36,7 @@ class DatabaseHelper {
                 name: student[1],
 
                 stream: student[2],
-                
+
                 s1: student[3],
                 s1mark: Number(student[4]),
 
@@ -45,11 +45,11 @@ class DatabaseHelper {
 
                 s3: student[7],
                 s3mark: Number(student[8]),
-                
+
 
                 s4: student[9],
                 s4mark: Number(student[10]),
-                
+
 
                 s5: student[11],
                 s5mark: Number(student[12]),
@@ -61,6 +61,7 @@ class DatabaseHelper {
 
             await this.db.collection(district).doc(school).collection("mark-data").doc(regno).set(data);
 
+            console.log(i + " inserted " + student[1] + " " + regno + " into db")
 
         });
 

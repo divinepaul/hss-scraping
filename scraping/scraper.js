@@ -13,9 +13,9 @@ class Scraper {
         this.browser = await puppeteer.launch();
 
         this.page = await this.browser.newPage();
-        
+
         console.log("Init complete, browser window ready.");
-        
+
 
     }
 
@@ -25,7 +25,7 @@ class Scraper {
         // like a normal user
         this.schoolCode = schoolCode;
 
-        if(!this.page){
+        if (!this.page) {
             throw "Exception : please call init() method befor this method";
         }
 
@@ -49,15 +49,15 @@ class Scraper {
         // the execution is paused for 5 seconds becuase the result being is fetched and then displayed.
         await this.page.waitFor(5000);
 
-        console.log("Navigated to the result of : ${this.schoolCode}");
-        
+        console.log("Navigated to the result of : " + this.schoolCode);
+
 
     }
 
 
     async scrape() {
 
-        if(!this.schoolCode){
+        if (!this.schoolCode) {
             throw "Exception : Please call the navigateToSchoolCode() method before this method"
         }
 
@@ -104,21 +104,23 @@ class Scraper {
 
         });
 
+        console.log("Scaping complete.");
+
     }
 
 
 
     // used to close the headless browser
-    async disposeScraper(){
+    async disposeScraper() {
         await this.browser.close();
     }
     // getter to return 2D array.
     get results() {
 
-        if(!this.studentData){
+        if (!this.studentData) {
             return this.studentData;
 
-        }else{
+        } else {
             throw "Exception : Please call scrape function()"
         }
     }
