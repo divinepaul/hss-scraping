@@ -4,7 +4,7 @@ A simple nodejs project for scraping marks of dhss students using puppeteer and 
 
 ## Installation
 
-Please create a .env file and insert ur firbase credentials inorder for this to work.
+Please create a .env file and insert your firbase credentials inorder for this to work.
 or you cannot use the db_helper
 
 ```bash
