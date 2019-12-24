@@ -46,8 +46,8 @@ class Scraper {
         await this.page.keyboard.press("Enter");
 
 
-        // the execution is paused for 5 seconds becuase the result being is fetched and then displayed.
-        await this.page.waitFor(5000);
+        // the execution is paused until the element containing the data is visible.
+        await this.page.waitForSelector('#Table3', {visible: true});
 
         console.log("Navigated to the result of : " + this.schoolCode);
 

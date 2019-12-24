@@ -8,7 +8,8 @@ let schoolData = [
         schools: {
             start: 1001,
             end: 1181,
-        }
+        },
+        done:0
     },
 
 
@@ -18,7 +19,8 @@ let schoolData = [
         schools: {
             start: 2001,
             end: 2302,
-        }
+        },
+        done:0
     },
 
 
@@ -28,7 +30,8 @@ let schoolData = [
         schools: {
             start: 3001,
             end: 3107,
-        }
+        },
+        done:0
     },
 
 
@@ -38,7 +41,8 @@ let schoolData = [
         schools: {
             start: 4001,
             end: 4301,
-        }
+        },
+        done:0
     },
 
     {
@@ -47,7 +51,8 @@ let schoolData = [
         schools: {
             start: 5001,
             end: 5143,
-        }
+        },
+        done:0
     },
 
     {
@@ -56,7 +61,8 @@ let schoolData = [
         schools: {
             start: 6001,
             end: 5082,
-        }
+        },
+        done:0
     },
 
     {
@@ -65,7 +71,8 @@ let schoolData = [
         schools: {
             start: 7001,
             end: 7301,
-        }
+        },
+        done:0
     },
 
     {
@@ -74,7 +81,8 @@ let schoolData = [
         schools: {
             start: 8001,
             end: 8305,
-        }
+        },
+        done:0
     },
 
     {
@@ -83,7 +91,8 @@ let schoolData = [
         schools: {
             start: 9001,
             end: 9308,
-        }
+        },
+        done:0
     },
 
     {
@@ -92,7 +101,8 @@ let schoolData = [
         schools: {
             start: 10001,
             end: 10302,
-        }
+        },
+        done:0
     },
 
     {
@@ -101,7 +111,8 @@ let schoolData = [
         schools: {
             start: 11001,
             end: 11314,
-        }
+        },
+        done:0
     },
 
     {
@@ -110,7 +121,8 @@ let schoolData = [
         schools: {
             start: 12001,
             end: 12301,
-        }
+        },
+        done:0
     },
 
     {
@@ -119,7 +131,8 @@ let schoolData = [
         schools: {
             start: 13001,
             end: 13301,
-        }
+        },
+        done:0
     },
 
     {
@@ -128,7 +141,8 @@ let schoolData = [
         schools: {
             start: 14001,
             end: 14304,
-        }
+        },
+        done:0
     },
 
 ];

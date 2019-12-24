@@ -8,6 +8,7 @@ class DatabaseHelper {
 
     constructor() {
         // Initialize Cloud Firestore through Firebase
+        // make ur own .env file and insert these firebase credentials.
         firebase.initializeApp({
             apiKey: process.env.FIREBASE_API_KEY,
             authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -18,7 +19,7 @@ class DatabaseHelper {
             messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
             appId: process.env.FIREBASE_APP_ID
         });
-
+        // init db.
         this.db = firebase.firestore();
 
     }
@@ -27,6 +28,7 @@ class DatabaseHelper {
 
 
         studentData.forEach(async (student, i) => {
+            
             let regno = student[0];
 
             let data = {
