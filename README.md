@@ -1,3 +1,6 @@
+![No longer maintained](https://img.shields.io/badge/Maintenance-OFF-red.svg)
+## [DEPRECATED] This repository is no longer maintained
+
 # hss-scraping
 
 A simple nodejs project for scraping marks of dhss students using puppeteer and nodejs.
